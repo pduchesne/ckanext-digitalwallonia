@@ -10,6 +10,7 @@
 /* line 16, sass/_navbar.scss */
 #header-main {
   /*-----NAVBAR----*/
+    background: #262626
 }
 @media only screen and (max-width: 479px) {
   /* line 19, sass/_navbar.scss */
