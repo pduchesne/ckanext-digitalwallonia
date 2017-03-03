@@ -1,3 +1,12 @@
+
+
+/* CKAN Patches */
+.homepage [role=main] {
+    min-height: 0;
+}
+
+
+
 /* line 16, sass/_navbar.scss */
 #header-main {
   /*-----NAVBAR----*/
@@ -101,6 +110,11 @@ footer.site-footer {
   color: #E5E5E5;
   background-color: #52535B;
 }
+
+footer.site-footer>.container {
+    width: inherit
+}
+
 /* line 148, sass/_general.scss */
 footer.site-footer ul.menu > li {
   border-bottom: 1px solid #52535B;
