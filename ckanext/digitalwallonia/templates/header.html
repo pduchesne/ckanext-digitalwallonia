@@ -1,0 +1,122 @@
+{% block header_wrapper %}
+{% block header_account %}
+
+<link href="https://cdn.lynxor.io/thirdparty/digitalwallonia/opendata-fonts.css" rel="stylesheet" type="text/css">
+
+<header id="header-main">
+    <nav class="navbar navbar-default" style=
+    "background-color: rgb(255, 255, 255);">
+        <div class="container" style="width: 940px;">
+            <div class="navbar-header">
+                <a class="brand" href="http://opendata.awt.be/"
+                rel="home" title="digitalwallonia.be"><img alt=
+                "DigitalWallonia.be" src=
+                "https://www.digitalwallonia.be/wp-content/themes/digitalwallonia/img/Logo-DW-DEGRADE-SM-BK.png"></a>
+            </div><!-- / .navbar-header-->
+
+            <div class="navbar-collapse" id=
+            "cibles-navbar-collapse">
+                
+                {% block header_site_navigation %}
+          <ul class="nav navbar-nav navbar-right" style="font-weight: 600; font-family: 'source-sans-pro', sans-serif; -webkit-font-smoothing: antialiased; float: right; margin-top: 40px;">
+            {% block header_site_navigation_tabs %}
+              {{ h.build_nav_main(
+                ('search', _('Datasets')),
+                ('organizations_index', _('Organizations')),
+                ('group_index', _('Groups')),
+                ('about', _('About'))
+              ) }}
+            {% endblock %}
+          </ul>
+      {% endblock %}
+                            </div><!-- /.navbar-collapse -->
+            
+            
+            
+            
+        </div>        
+    </nav><!-- /.navbar-->
+
+    <div class="header">
+        <div class="container" style="overflow: hidden;">
+            <h1 class="home-title" style="color: rgb(255, 255, 255); font-family: 'source-sans-pro', sans-serif; font-weight: 500; font-size: 32px; -webkit-font-smoothing: antialiased; float: left; margin-bottom: 25px;">Open Data pour la Wallonie</h1>
+            
+            <div style="float: right;">
+                <div>
+                {% block header_account_container_content %}
+                {% if c.userobj %}
+                    <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
+                        <ul class="unstyled">
+                        {% block header_account_logged %}
+                        {% if c.userobj.sysadmin %}
+                            <li style="float: right; margin-left: 10px;">
+                                <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
+                                    <i class="icon-legal"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li style="float: right; margin-left: 10px;">
+                            <a href="{{ h.url_for(controller='user', action='read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
+                                {{ h.gravatar((c.userobj.email_hash if c and c.userobj else ''), size=22) }}
+                                <span class="username">{{ c.userobj.display_name }}</span>
+                            </a>
+                        </li>
+                        {% set new_activities = h.new_activities() %}
+                        <li class="notifications {% if new_activities > 0 %}notifications-important{% endif %}" style="float: right; margin-left: 10px;">
+                        {% set notifications_tooltip = ngettext('Dashboard (%(num)d new item)', 'Dashboard (%(num)d new items)', new_activities) %}
+                            <a href="{{ h.url_for(controller='user', action='dashboard') }}" title="{{ notifications_tooltip }}">
+                                <i class="icon-dashboard"></i>
+                                <span>{{ new_activities }}</span>
+                            </a>
+                        </li>
+                        {% block header_account_settings_link %}
+                        <li style="float: right; margin-left: 10px;">
+                            <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}" title="{{ _('Edit settings') }}">
+                                <i class="icon-cog"></i>
+                            </a>
+                        </li>
+                        {% endblock %}
+                        {% block header_account_log_out_link %}
+                        <li style="float: right; margin-left: 10px;">
+                            <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
+                                <i class="icon-signout"></i>
+                            </a>
+                        </li>
+                        {% endblock %}
+                        {% endblock %}
+                    </ul>
+                </div>
+                {% else %}
+                <nav class="account not-authed">
+                    <ul class="unstyled">
+                        {% block header_account_notlogged %}
+                        <li style="float: right; margin-left: 10px;">{% link_for _('Log in'), controller='user', action='login' %}</li>
+                        {% if h.check_access('user_create') %}
+                        <li style="float: right; margin-left: 10px;">{% link_for _('Register'), controller='user', action='register', class_='sub' %}</li>
+                        {% endif %}
+                        {% endblock %}
+                    </ul>
+                </nav>
+                {% endif %}    
+            {% endblock %}  
+                </div>        
+                <div>
+                    {% block header_site_search %}
+            <form class="section site-search simple-input" action="{% url_for controller='package', action='search' %}" method="get" style="width: 300px; float: right; margin-top: 10px;">
+                <div class="field">
+                    <label for="field-sitewide-search">{{ _('Search Datasets') }}</label>
+                    <input id="field-sitewide-search" type="text" name="q" placeholder="{{ _('Search datasets...') }}" />
+                    <button class="btn-search" type="submit"></button>
+                </div>
+            </form>
+            {% endblock %}
+                </div>  
+            </div>
+            
+            </div>
+        </div>
+    </div><!-- .archive-header -->
+</header>
+  
+{% endblock %}
+{% endblock %}
