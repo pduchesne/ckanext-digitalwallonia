@@ -25,5 +25,6 @@ setup(
     entry_points='''
         [ckan.plugins]
 	digitalwallonia_theme=ckanext.digitalwallonia.plugin:ADNThemePlugin
+	metawal_harvester=ckanext.digitalwallonia.plugin:MetawalHarvester
     ''',
 )
