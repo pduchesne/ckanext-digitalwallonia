@@ -1,0 +1,14 @@
+[
+    {
+        "title": "OSM",
+        "type" : "OSM",
+        "url" : "http://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "attribution" : " Map tiles & Data by OpenStreetMap, under CC BY SA."
+    },
+    {
+        "title": "Wal WMTS",
+        "type" : "wmts",
+        "url" : "http://geoservices.wallonie.be/arcgis/rest/services/DONNEES_BASE/FOND_PLAN_CARTE_RW/MapServer/WMTS/1.0.0/WMTSCapabilities.xml",
+        "attribution" : " Map tiles & Data by OpenStreetMap, under CC BY SA."
+    }
+]
