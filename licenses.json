@@ -1,0 +1,60 @@
+
+[
+    {
+        "domain_content": false,
+        "domain_data": false,
+        "domain_software": false,
+        "family": "",
+        "id": "notrecognized",
+        "is_generic": true,
+        "is_okd_compliant": false,
+        "is_osi_compliant": false,
+        "maintainer": "",
+        "status": "retired",
+        "title": "License Unknown",
+        "url": ""
+    },
+    {
+        "domain_content": false,
+        "domain_data": false,
+        "domain_software": false,
+        "family": "",
+        "id": "notspecified",
+        "is_generic": true,
+        "is_okd_compliant": false,
+        "is_osi_compliant": false,
+        "maintainer": "",
+        "status": "active",
+        "title": "License Not Specified",
+        "url": ""
+    },
+
+    {
+        "domain_content": true,
+        "domain_data": true,
+        "domain_software": true,
+        "family": "",
+        "id": "cc-zero",
+        "is_okd_compliant": true,
+        "is_osi_compliant": false,
+        "maintainer": "",
+        "status": "active",
+        "title": "Creative Commons - CC0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+
+    {
+        "domain_content": true,
+        "domain_data": true,
+        "domain_software": true,
+        "family": "",
+        "id": "spw_geo_services",
+        "is_okd_compliant": false,
+        "is_osi_compliant": false,
+        "maintainer": "",
+        "status": "active",
+        "title": "License SPW - GeoServices",
+        "url": "http://geoportail.wallonie.be/files/documents/ConditionsSPW/LicServicesSPW.pdf"
+    }
+
+]
