@@ -1,5 +1,11 @@
 [
     {
+        "title": "OSM",
+        "type" : "OSM",
+        "url" : "http://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        "attribution" : " Map tiles & Data by OpenStreetMap, under CC BY SA."
+    },
+    {
         "title": "Fond de Plan SPW",
         "type" : "wmts",
         "url" : "http://geoservices.wallonie.be/arcgis/rest/services/DONNEES_BASE/FOND_PLAN_CARTE_RW/MapServer/WMTS/1.0.0/WMTSCapabilities.xml",
@@ -14,12 +20,6 @@
         "title": "Vues aériennes",
         "type" : "wmts",
         "url" : "http://geoservices.wallonie.be/arcgis/rest/services/IMAGERIE/ORTHO_LAST/MapServer/WMTS/1.0.0/WMTSCapabilities.xml"
-    },
-    {
-        "title": "OSM",
-        "type" : "OSM",
-        "url" : "http://tile.openstreetmap.org/{z}/{x}/{y}.png",
-        "attribution" : " Map tiles & Data by OpenStreetMap, under CC BY SA."
     }
 
 ]
